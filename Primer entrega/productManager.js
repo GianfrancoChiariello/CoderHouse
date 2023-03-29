@@ -67,6 +67,11 @@ console.log("Se crea el producto")
 
 manager.addProduct("Gato","animal",1000,"imagen","1113",4)
 
+console.log("Deberia retornar que se ingresen los campos")
+
+manager.addProduct()
+
+
 
 //Obtener
 
