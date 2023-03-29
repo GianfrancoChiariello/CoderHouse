@@ -10,6 +10,10 @@ class ProductManager {
             return console.error("Ingrese todos los campos")
         }
 
+        if (stock <= 0) {
+            return console.error("El producto ingresado debe tener un stock mayor a 0")
+        }
+
         if (this.productos.some((producto) => producto.code == code)) {
             return console.error("Ya existe ese producto")
         }
