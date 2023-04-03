@@ -7,17 +7,14 @@ class ProductManager {
     addProduct (title,description,price,thumbnail,code,stock) {
 
         if (!title || !description || !price || !thumbnail || !code || !stock) {
-            return console.error("Ingrese todos los campos")
-        }
-
+            return console.error("Ingrese todos los campos")}
         if (stock <= 0) {
-            return console.error("El producto ingresado debe tener un stock mayor a 0")
-        }
-
+            return console.error("El producto ingresado debe tener un stock mayor a 0")}
         if (this.productos.some((producto) => producto.code == code)) {
-            return console.error("Ya existe ese producto")
-        }
+            return console.error("Ya existe ese producto")}
 
+        
+    
         this.productos.push({
             id: this.id++,
             title,
@@ -59,28 +56,23 @@ const manager = new ProductManager()
 
 //Crear
 
-console.log("Se crea el producto")
-
 manager.addProduct("Perro","animal",1000,"imagen","1112",4)
+manager.addProduct("Gato","animal",1000,"imagen","1112",5)
 
-console.log("No crea el producto")
-
-manager.addProduct("Perro","animal",1000,"imagen","1112",4)
-
-console.log("Se crea el producto")
+/* console.log("Se crea el producto")
 
 manager.addProduct("Gato","animal",1000,"imagen","1113",4)
 
 console.log("Deberia retornar que se ingresen los campos")
 
-manager.addProduct()
+manager.addProduct() */
 
 
 
 //Obtener
 
 
-console.log("Deberia retornar los productos")
+/* console.log("Deberia retornar los productos")
 
 manager.getProducts()
 
@@ -98,3 +90,4 @@ manager.getProductById(9)
 console.log("Deberia retornar que se debe enviar un id valido")
 manager.getProductById(-2)
 
+ */
