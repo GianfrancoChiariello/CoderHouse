@@ -51,12 +51,12 @@
 
 
 //Importamos la libreria fs (File System de node.JS)
-const fs = require('fs')
+import fs from 'fs'
 
 
 //Path usado en el ejemplo: './productos.json'
 
-class ProductManager {
+export default class ProductManager {
     constructor (path) {
         this.path = path
     }
@@ -186,7 +186,7 @@ class ProductManager {
 const start = new ProductManager('./productos.json')
 
 
-const test = async () => {
+/* const test = async () => {
     const obj = {
         title: 'camiseta',
         descripcion: 'example',
@@ -199,11 +199,11 @@ const test = async () => {
     const addProduct = await start.addProduct(obj)
     //console.log(addProduct)
     
-    const productos = await start.getProducts()
+    //const productos = await start.getProducts()
     //console.log(productos)
 
     
-    const productById = await start.getProductById(1)
+    //const productById = await start.getProductById(1)
     //console.log(productById)
     
 
@@ -211,13 +211,13 @@ const test = async () => {
     //console.log(deleteProduct)
 
     
-    const updateProduct = await start.updateProduct(2, {title: 'zapatilla', precio: 665})
+    //const updateProduct = await start.updateProduct(2, {title: 'zapatilla', precio: 665})
     //console.log(updateProduct)
     
 }
 
 
-test()
+test() */
 
 
 
