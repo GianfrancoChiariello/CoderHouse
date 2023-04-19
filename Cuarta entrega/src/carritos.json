@@ -1,0 +1,56 @@
+[
+	{
+		"productos": [],
+		"id": 1
+	},
+	{
+		"productos": [
+			{
+				"producto": 7,
+				"quantity": 5
+			},
+			{
+				"producto": 8,
+				"quantity": 5
+			},
+			{
+				"producto": 10,
+				"quantity": 2
+			},
+			{
+				"producto": 11,
+				"quantity": 1
+			},
+			{
+				"producto": 12,
+				"quantity": 1
+			},
+			{
+				"producto": 13,
+				"quantity": 4
+			}
+		],
+		"id": 2
+	},
+	{
+		"productos": [
+			{
+				"producto": 13,
+				"quantity": 2
+			}
+		],
+		"id": 3
+	},
+	{
+		"productos": [],
+		"id": 4
+	},
+	{
+		"productos": [],
+		"id": 5
+	},
+	{
+		"productos": [],
+		"id": 6
+	}
+]

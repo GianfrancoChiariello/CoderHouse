@@ -1,0 +1,76 @@
+[
+	{
+		"title": "camiseta",
+		"descripcion": "example",
+		"precio": 123,
+		"imgUrl": "example",
+		"code": 1321323,
+		"stock": 1,
+		"id": 1
+	},
+	{
+		"title": "camiseta",
+		"descripcion": "example",
+		"precio": 123,
+		"imgUrl": "example",
+		"code": 1321323,
+		"stock": 1,
+		"id": 2
+	},
+	{
+		"title": "camiseta",
+		"descripcion": "example",
+		"precio": 123,
+		"imgUrl": "example",
+		"code": 1321323,
+		"stock": 1,
+		"id": 3
+	},
+	{
+		"title": "camiseta",
+		"descripcion": "example",
+		"precio": 123,
+		"imgUrl": "example",
+		"code": 1321323,
+		"stock": 1,
+		"id": 4
+	},
+	{
+		"title": "camiseta",
+		"descripcion": "example",
+		"precio": 123,
+		"imgUrl": "example",
+		"code": 1321323,
+		"stock": 1,
+		"id": 5
+	},
+	{
+		"title": "camiseta",
+		"descripcion": "example",
+		"precio": 123,
+		"imgUrl": "example",
+		"code": 1321323,
+		"stock": 1,
+		"id": 6
+	},
+	{
+		"title": "camiseta",
+		"descripcion": "example",
+		"precio": 123,
+		"imgUrl": "example",
+		"code": 1321323,
+		"stock": 1,
+		"id": 7
+	},
+	{
+		"title": "camisetass",
+		"descripcion": "example",
+		"precio": 123,
+		"imgUrl": "example",
+		"code": 1321323,
+		"stock": 1,
+		"category": "deportes",
+		"id": 9,
+		"status": true
+	}
+]
