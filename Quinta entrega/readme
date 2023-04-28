@@ -1,0 +1,7 @@
+<<--merge_error-->>
+    //<<--merge_start-->>
+    //<<--block_start(block1)-->> 1
+    //<<--block_start(block2)-->> 2
+    //<<--block_start(block3)-->> 3
+    //<<--block_start(block4)-->> 4
+<<
