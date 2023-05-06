@@ -1,4 +1,4 @@
-class ContenedorMemoria {
+class ProductManager {
 
     constructor() {
         this.elementos = []
@@ -52,4 +52,4 @@ class ContenedorMemoria {
     }
 }
 
-export default ContenedorMemoria
+export default ProductManager

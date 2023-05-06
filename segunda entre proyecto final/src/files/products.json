@@ -1,0 +1,22 @@
+[
+	{
+		"title": "example1",
+		"description": "example1",
+		"code": "example1",
+		"price": 1000,
+		"status": true,
+		"stock": 2,
+		"category": "example1",
+		"id": 1
+	},
+	{
+		"title": "example2",
+		"description": "example2",
+		"code": "example2",
+		"price": 1000,
+		"status": true,
+		"stock": 2,
+		"category": "example2",
+		"id": 2
+	}
+]
