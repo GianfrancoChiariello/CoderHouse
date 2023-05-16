@@ -2,7 +2,7 @@ import {productsModel} from '../models/products.model.js'
 
 export default class productos {
     constructor() {
-        console.log("Product constructor start")
+        console.log("Product constructor starttted")
     }
 
     getAll = async () => {
