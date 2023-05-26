@@ -1,14 +1,27 @@
-<h4>productos:</h4>
-{{#each productos}}
-    <p>Producto:{{this.producto}}</p>
-    <p>Categoria:{{this.categoria}}</p>
-    <p>Precio:{{this.precio}}</p>
-    <p>Stock:{{this.stock}}</p></br>
-    <form action="/productos/{{this._id}}" method="get">
-        <button type="submit">Ver producto</button>
-    </form>
-    <button onclick="addToCart('{{this._id}}')">Añadir al carrito</button>
-{{/each}}
+<div style="display: flex; justify-content: space-between width: 100%">
+    <div>
+            <h4>productos:</h4>
+        {{#each productos}}
+            <p>Producto:{{this.producto}}</p>
+            <p>Categoria:{{this.categoria}}</p>
+            <p>Precio:{{this.precio}}</p>
+            <p>Stock:{{this.stock}}</p></br>
+            <form action="/productos/{{this._id}}" method="get">
+                <button type="submit">Ver producto</button>
+            </form>
+            <button onclick="addToCart('{{this._id}}')">Añadir al carrito</button>
+        {{/each}}
+    </div>
+
+    <div>
+        <form action="/cart/646fc534e0a97f371ebd345e" method="get">
+            <button type="submit">Cart</button>
+        </form>
+    </div>
+</div>
+
+
+
 
 
 

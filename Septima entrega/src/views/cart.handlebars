@@ -1,0 +1,51 @@
+<div style="display: flex; justify-content: space-between width: 100%">
+    <div>
+            <h4>productos:</h4>
+        {{#each productosCart}}
+            <p>Producto:{{this.producto}}</p>
+            <p>Categoria:{{this.categoria}}</p>
+            <p>Precio:{{this.precio}}</p>
+            <p>Stock:{{this.stock}}</p></br>
+            <button onclick="removeFromCart('{{this._id}}')">Eliminar</button>
+        {{/each}}
+    </div>
+</div>
+
+
+<h4>Carrito:</h4>
+<p>Usuario:{{this.cart.user}}</p>
+<p>Email:{{this.cart.email}}</p>
+
+
+</br>
+</br>
+</br>
+</br>
+</br>
+
+<form action="/" method="get">
+    <button type="submit">Volver</button>
+</form>
+
+
+<script>
+
+    function removeFromCart(id) {
+        fetch('/api/cart/deleteProduct/646fc534e0a97f371ebd345e/' + id, {
+            method: 'DELETE'
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            console.log(data);
+            alert('Producto eliminado correctamente')
+        });
+    }
+
+</script>
+
+
+
+
+
+
+
