@@ -4,4 +4,8 @@
     <p>Categoria:{{this.categoria}}</p>
     <p>Precio:{{this.precio}}</p>
     <p>Stock:{{this.stock}}</p></br>
+    <form action="/productos/{{this._id}}" method="get">
+        <button type="submit">Ver producto</button>
+    </form>
 {{/each}}
+

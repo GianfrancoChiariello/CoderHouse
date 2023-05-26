@@ -6,7 +6,7 @@ const productManager = new productos()
 
 router.get('/', async (req,res) => {
     try {
-        const productos = await productManager.getAll(req.query)
+        const productos = await productManager.getAll(req)
         res.send({status: 'success', payload: productos})
     } catch (error) {
         res.status(500).send({ status: 'error', error });
@@ -15,8 +15,9 @@ router.get('/', async (req,res) => {
 
 router.get('/:id', async (req,res) => {
     try {
-        const producto = await productManager.getProductId(req.params.id)
-        res.send({status: 'success', payload: producto})
+        const productos = await productManager.getProductId(req.params.id)
+        console.log(productos)
+        res.send({status: 'success', payload: productos})
     } catch (error) {
         res.status(500).send({ status: 'error', error });
     }

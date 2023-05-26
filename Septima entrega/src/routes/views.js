@@ -8,7 +8,7 @@ const productManager = new productos();
 
 router.get('/', async (req, res) => {
     try {
-        const productos = await productManager.getAll();
+        const productos = await productManager.getAll(req);
         res.render('productos', { productos })   
     } catch (error) {
         console.log(error);
@@ -16,10 +16,10 @@ router.get('/', async (req, res) => {
 })
 
 
-router.get('/productos', async (req,res) => {
+router.get('/productos/:id', async (req,res) => {
     try {
-        const productos = await productManager.getAll()
-        res.render('productos', {productos})
+        const producto = await productManager.getProductId(req.params.id)
+        res.render('producto', { producto })
     } catch (error) {
         console.log(error)
     }

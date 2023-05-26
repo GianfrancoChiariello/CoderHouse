@@ -5,21 +5,41 @@ export default class productos {
         console.log("Product constructor starttted")
     }
 
-    getAll = async (query) => {
+    getAll = async (req) => {
 
         //Limit de productos , default 10
         //page: numero de pagina , default 1
-        //query: tipo de elemento , default busqueda general
+        //query: categoria o stock
         //sort: asc/desc , default sin sort
+        //
 
-        const { limit = 10, page = 1, sort = 'asc'} = query;
+        const { limit = 10 } = req?.params
 
 
+/*         const productos = await productsModel.find()
+        return productos */
+        
 
-        const productos = await productsModel.find()
+        const productos = await productsModel.aggregate(
+            [
+                {
+                    $limit: Number(limit),
+                }
+            ]
+        )
+
         return productos
-        /* return productos.map(producto => producto.toObject()); */
+
     }
+
+
+
+
+
+
+
+
+
 
     getProductId = async (id) => {
         const producto = await productsModel.findById(id)

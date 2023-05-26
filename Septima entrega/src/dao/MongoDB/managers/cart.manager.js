@@ -6,8 +6,10 @@ export default class Cart {
     }
 
     getCart = async (id) => {
-        const cartId = await cartModel.findById(id)
-        return cartId
+
+        const cartFind = id ? await cartModel.findById(id) : await cartModel.find()
+        
+        return cartFind
     }
 
     newCart = async (cart) => {
@@ -16,10 +18,28 @@ export default class Cart {
     }
 
     addProduct = async (id,producto) => {
-        const cartAdd = await cartModel.findByIdAndUpdate(id,{$push: {productos: producto}})
+        await cartModel.findByIdAndUpdate(id,{
+            $push: {productos: producto}
+        })
+        
+        
         const cart = this.getCart(id)
 
         return cart
+    }
+
+    deleteProduct = async (id, idProduct) => {
+        
+        const deleted = await cartModel.findByIdAndUpdate(id,{
+            $pull: {productos: idProduct}
+        })
+
+        return deleted
+    }
+ 
+    deleteCart = async (id) => {
+        const cartDelete = await cartModel.findByIdAndDelete(id)
+        return cartDelete
     }
 
 }
