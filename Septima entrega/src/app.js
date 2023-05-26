@@ -18,6 +18,7 @@ server.engine('handlebars', handlebars.engine());
 server.set('views', `${__dirname}/views`);
 server.set('view engine', 'handlebars');
 
+
 //Routes config
 //Cart
 //Message

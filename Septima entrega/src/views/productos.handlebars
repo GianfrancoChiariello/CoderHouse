@@ -22,22 +22,28 @@
 
 
 
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 
-
-
-<div style="display: flex; justify-content: space-between width: 100px">
-        <button >Anterior</button>
+<div style="display: flex; justify-content: space-between; width: 100px">
+    {{#if this.paginate.hasPrevPage}}
+        <button onclick="navigate('{{this.paginate.prevPage}}', 'prev')">Anterior</button>
+    {{/if}}
     <p>{{this.paginate.page}}</p>
-        <button >Siguiente</button>
+    {{#if this.paginate.hasNextPage}}
+        <button onclick="navigate('{{this.paginate.nextPage}}', 'next')">Siguiente</button>
+    {{/if}}
 </div>
 
 
 
 
-
-
-
 <script>
+    
     function addToCart(id) {
         fetch('/api/cart/add/646fc534e0a97f371ebd345e/' + id, {
             method: 'POST'
@@ -48,4 +54,15 @@
             alert('Producto agregado correctamente')
         });
     }
+
+
+    function navigate(paginate, direction) {
+        console.log("tipo y ejemplo para pasar mas de 1 prop", direction)
+        window.location.href = `/?page=${paginate}`
+    }
+
+
+
+
+
 </script>
