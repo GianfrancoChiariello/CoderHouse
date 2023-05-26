@@ -7,7 +7,7 @@ export default class productos {
 
     getAll = async (req) => {
 
-        const { limit = 10, category = null, sort = null } = req?.query
+        const { limit = 10, category = null, sort = null, page = 1 } = req?.query
 
 
         let pipeline = [];
@@ -23,7 +23,7 @@ export default class productos {
         
         const productos = pipeline.length ? await productsModel.aggregate(pipeline) : await productsModel.paginate({}, {
             limit: Number(limit),
-            page: 1,
+            page: page,
         });
 
 
