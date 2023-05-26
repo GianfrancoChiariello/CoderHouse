@@ -7,26 +7,22 @@ export default class productos {
 
     getAll = async (req) => {
 
-        //Limit de productos , default 10
-        //page: numero de pagina , default 1
-        //query: categoria o stock
-        //sort: asc/desc , default sin sort
-        //
+        const { limit = 10, category = null, sort = null } = req?.query
 
-        const { limit = 10 } = req?.params
+        let pipeline = [];
 
-
-/*         const productos = await productsModel.find()
-        return productos */
+        if (category) {
+            pipeline.push({ $match: { categoria : category } });
+        }
         
+        if (sort) {
+            const sortOrder = sort === 'asc' ? 1 : -1;
+            pipeline.push({ $sort: { producto : sortOrder } });
+        }
+        
+        pipeline.push({ $limit: Number(limit) });
 
-        const productos = await productsModel.aggregate(
-            [
-                {
-                    $limit: Number(limit),
-                }
-            ]
-        )
+        const productos = await productsModel.aggregate(pipeline)
 
         return productos
 

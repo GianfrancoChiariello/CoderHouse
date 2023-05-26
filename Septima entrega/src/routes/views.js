@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 router.get('/productos/:id', async (req,res) => {
     try {
         const producto = await productManager.getProductId(req.params.id)
-        res.render('producto', { producto })
+        res.render('producto', { producto: producto })
     } catch (error) {
         console.log(error)
     }
