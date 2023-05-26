@@ -30,6 +30,10 @@
 
 <script>
 
+    function refresh() {
+        window.location.href = '/cart/646fc534e0a97f371ebd345e'
+    }
+
     function removeFromCart(id) {
         fetch('/api/cart/deleteProduct/646fc534e0a97f371ebd345e/' + id, {
             method: 'DELETE'
@@ -39,6 +43,8 @@
             console.log(data);
             alert('Producto eliminado correctamente')
         });
+
+        refresh()
     }
 
 </script>
