@@ -25,6 +25,7 @@ export default class productos {
             limit: Number(limit),
             page: page,
         });
+        
 
 
         return productos
