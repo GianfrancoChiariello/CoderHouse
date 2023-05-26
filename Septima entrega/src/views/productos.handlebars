@@ -7,5 +7,19 @@
     <form action="/productos/{{this._id}}" method="get">
         <button type="submit">Ver producto</button>
     </form>
+    <button onclick="addToCart('{{this._id}}')">Añadir al carrito</button>
 {{/each}}
 
+
+<script>
+    function addToCart(id) {
+        fetch('/api/cart/add/646fc534e0a97f371ebd345e/' + id, {
+            method: 'POST'
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            console.log(data);
+            alert('Producto agregado correctamente')
+        });
+    }
+</script>
