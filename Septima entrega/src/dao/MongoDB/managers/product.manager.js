@@ -9,6 +9,7 @@ export default class productos {
 
         const { limit = 10, category = null, sort = null } = req?.query
 
+
         let pipeline = [];
 
         if (category) {
@@ -20,9 +21,11 @@ export default class productos {
             pipeline.push({ $sort: { producto : sortOrder } });
         }
         
-        pipeline.push({ $limit: Number(limit) });
+        const productos = pipeline.length ? await productsModel.aggregate(pipeline) : await productsModel.paginate({}, {
+            limit: Number(limit),
+            page: 1,
+        });
 
-        const productos = await productsModel.aggregate(pipeline)
 
         return productos
 
