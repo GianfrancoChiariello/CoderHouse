@@ -7,7 +7,7 @@ export default class productos {
 
     getAll = async (req) => {
 
-        const { limit = 10, category = null, sort = null, page = 1 } = req?.query
+        const { limit = 1, category = null, sort = null, page = 1 } = req?.query
 
 
         let pipeline = [];

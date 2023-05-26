@@ -11,6 +11,19 @@
 {{/each}}
 
 
+
+<div style="display: flex; justify-content: space-between width: 100px">
+        <button >Anterior</button>
+    <p>{{this.paginate.page}}</p>
+        <button >Siguiente</button>
+</div>
+
+
+
+
+
+
+
 <script>
     function addToCart(id) {
         fetch('/api/cart/add/646fc534e0a97f371ebd345e/' + id, {

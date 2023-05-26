@@ -9,8 +9,10 @@ const productManager = new productos();
 router.get('/', async (req, res) => {
     try {
         const productos = await productManager.getAll(req);
+        console.log(productos)
         res.render('productos', {
-            productos: productos?.docs.map(producto => producto.toObject())
+            productos: productos?.docs.map(producto => producto.toObject()),
+            paginate : productos
         })
     } catch (error) {
         console.log(error);

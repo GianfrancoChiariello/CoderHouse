@@ -7,6 +7,13 @@
 
 
 
+
+
+
+
+
+
+
 <script>
     function addToCart(id) {
         fetch('/api/cart/add/646fc534e0a97f371ebd345e/' + id, {
@@ -15,6 +22,7 @@
             return response.json();
         }).then(function (data) {
             console.log(data);
+            alert('Producto agregado correctamente')
         });
     }
 </script>
