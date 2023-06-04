@@ -1,0 +1,68 @@
+<div style="display: flex; justify-content: space-between width: 100%">
+    <div>
+            <h4>productos:</h4>
+        {{#each productos}}
+            <p>Producto:{{this.producto}}</p>
+            <p>Categoria:{{this.categoria}}</p>
+            <p>Precio:{{this.precio}}</p>
+            <p>Stock:{{this.stock}}</p></br>
+            <form action="/productos/{{this._id}}" method="get">
+                <button type="submit">Ver producto</button>
+            </form>
+            <button onclick="addToCart('{{this._id}}')">Añadir al carrito</button>
+        {{/each}}
+    </div>
+
+    <div>
+        <form action="/cart/646fc534e0a97f371ebd345e" method="get">
+            <button type="submit">Cart</button>
+        </form>
+    </div>
+</div>
+
+
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+<div style="display: flex; justify-content: space-between; width: 100px">
+    {{#if this.paginate.hasPrevPage}}
+        <button onclick="navigate('{{this.paginate.prevPage}}', 'prev')">Anterior</button>
+    {{/if}}
+    <p>{{this.paginate.page}}</p>
+    {{#if this.paginate.hasNextPage}}
+        <button onclick="navigate('{{this.paginate.nextPage}}', 'next')">Siguiente</button>
+    {{/if}}
+</div>
+
+
+
+
+<script>
+    
+    function addToCart(id) {
+        fetch('/api/cart/add/646fc534e0a97f371ebd345e/' + id, {
+            method: 'POST'
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            console.log(data);
+            alert('Producto agregado correctamente')
+        });
+    }
+
+
+    function navigate(paginate, direction) {
+        console.log("tipo y ejemplo para pasar mas de 1 prop", direction)
+        window.location.href = `/?page=${paginate}`
+    }
+
+
+
+
+
+</script>
