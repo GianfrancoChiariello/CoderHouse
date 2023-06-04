@@ -4,12 +4,18 @@ import handlebars from 'express-handlebars'
 import cookieParser from 'cookie-parser'
 import connect from './utils/mongoo.connect.js'
 import session from 'express-session'
+
+//deprecated
 import fileStore from 'session-file-store'
+
+//No deprecated
+import MongoStore from 'connect-mongo'
 
 import viewsRouter from './routes/views.js'
 import productRouter from './routes/productos.js'
 import cartRouter from './routes/cart.js'
 import cookieRouter from './routes/cookies.js'
+import sessionRouter from './routes/sessions.js'
 
 
 
@@ -23,7 +29,7 @@ server.use(express.urlencoded({extended: true}))
 //En la 19 se agrega la persistencia en archivos
 ///Persistencia en archivos
 
-const fileStorage = fileStore(session)
+/* const fileStorage = fileStore(session)
 
 
 //Session config 
@@ -32,10 +38,30 @@ server.use(session({
     resave: true,
     saveUninitialized: true,
     store: new fileStorage({
-        path: './src/sessions',
+        path: `${__dirname}/sessionStorage`,
         ttl: 60 * 60 * 24 * 7,
+        retries: 3,
     })
 }))
+ */
+
+//Persistencia en Mongo
+
+server.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true,
+    store: MongoStore.create({
+        mongoUrl: 'mongodb+srv://GChiariello:HacknCYMbuFN37CB@mybase.njpijon.mongodb.net/ecommerce?retryWrites=true&w=majority',
+        ttl: 15,
+        mongoOptions: {
+            //Para especificar nueva estructura de string connection
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        }
+    })
+}))
+
 
 
 
@@ -63,6 +89,7 @@ server.use('/', viewsRouter)
 server.use('/api/productos', productRouter)
 server.use('/api/cart',cartRouter)
 server.use('/api/cookies', cookieRouter)
+server.use('/api/session', sessionRouter)
 
 
 

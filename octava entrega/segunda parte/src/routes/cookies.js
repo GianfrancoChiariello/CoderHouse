@@ -6,13 +6,7 @@ const router = Router()
 
 //middlware
 
-const auth = (req,res,next) => {
-    if (req.session?.user === 'admin' && req.session.admin) {
-        return next()
-    } else {
-        return res.sendStatus(401)
-    }
-}
+
 
 //
 
@@ -37,11 +31,6 @@ router.get('/login', (req,res) => {
     
     res.send('Login OK')
 })
-
-router.get('/privado', auth, (req,res) => {
-    res.send('Tienes permiso en la pagina privada')
-})
-
 
 
 

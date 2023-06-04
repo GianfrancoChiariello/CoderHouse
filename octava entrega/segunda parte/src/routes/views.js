@@ -1,5 +1,6 @@
 import { application, Router } from 'express';
 import __dirname from '../utils.js'
+import {auth} from '../utils/functions.js'
 import productos from '../dao/MongoDB/managers/product.manager.js'
 import cart from '../dao/MongoDB/managers/cart.manager.js'
 
@@ -7,10 +8,15 @@ const router = Router();
 const productManager = new productos();
 const cartManager = new cart();
 
-//Cookies,session etc
 
-router.get('/cookies', (req, res) => {
-    res.render('cookies')
+
+
+router.get('/register', async (req,res) => {
+    res.render('register')
+})
+
+router.get('/login', async (req,res) => {
+    res.render('login')
 })
 
 
@@ -21,7 +27,13 @@ router.get('/cookies', (req, res) => {
 
 
 
-router.get('/', async (req, res) => {
+//Cookies
+
+router.get('/cookies', (req, res) => {
+    res.render('cookies')
+})
+
+router.get('/', auth, async (req, res) => {
     try {
         const productos = await productManager.getAll(req);
         console.log(productos)
