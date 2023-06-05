@@ -39,7 +39,8 @@ router.get('/', auth, async (req, res) => {
         console.log(productos)
         res.render('productos', {
             productos: productos?.docs.map(producto => producto.toObject()),
-            paginate : productos
+            paginate : productos,
+            user: req.session?.user
         })
     } catch (error) {
         console.log(error);
