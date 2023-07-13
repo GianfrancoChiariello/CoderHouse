@@ -1,0 +1,28 @@
+<h4>producto:</h4>
+<p>Producto:{{this.producto.producto}}</p>
+<p>Categoria:{{this.producto.categoria}}</p>
+<p>Precio:{{this.producto.precio}}</p>
+<p>Stock:{{this.producto.stock}}</p></br>
+<button onclick="addToCart('{{this.producto._id}}')">Añadir al carrito</button>
+
+
+
+
+
+
+
+
+
+
+<script>
+    function addToCart(id) {
+        fetch('/api/cart/add/646fc534e0a97f371ebd345e/' + id, {
+            method: 'POST'
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            console.log(data);
+            alert('Producto agregado correctamente')
+        });
+    }
+</script>
