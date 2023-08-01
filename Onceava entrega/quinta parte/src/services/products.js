@@ -1,4 +1,5 @@
-import productos from '../dao/MongoDB/managers/product.manager.js'
+//import productos from '../dao/MongoDB/managers/product.manager.js'
+import {productos} from '../dao/factory.js'
 const productManager = new productos()
 
 

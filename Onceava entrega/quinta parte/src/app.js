@@ -41,7 +41,7 @@ server.use(cookieParser())
 initializePassport()
 server.use(passport.initialize())
 
-connect()
+//connect()
 server.listen(config.ports, () => {
     console.log("Server running")
 })
