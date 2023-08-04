@@ -1,0 +1,52 @@
+<div>
+
+    <h1>Login</h1>
+
+    <form id="loginForm">
+
+        <label>Correo electronico</label>
+        <input type="email" id="email" name="email" placeholder="Correo electronico">
+
+        <label>Password</label>
+        <input type="password" id="password" name="password" placeholder="Password">
+
+        <input type="submit" value="Enviar">
+
+    </form>
+</div>
+
+<script>
+
+
+    const form = document.getElementById('loginForm');
+
+    form.addEventListener('submit', async (e)  => {
+        e.preventDefault();
+
+        const data = new FormData(form);
+        const obj = {};
+
+        data.forEach((value, key) => {
+            obj[key] = value;
+        });
+
+        const res = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj),
+        });
+
+        const json = await res.json();
+
+        if(json.status === 'Login ok') {
+            window.location.href = '/productos';
+        } else {
+            alert(json.error);
+        }
+
+    });
+
+</script>
